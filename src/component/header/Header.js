@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './header.css'
 const Header = () => {
     return (
-        <div className='flex items-center justify-around header'>
+        <div className='flex items-center justify-around header '>
             <div className='flex items-center h-auto title'>
                 <img src="https://media.istockphoto.com/vectors/online-education-concept-line-icons-internet-learning-courses-distant-vector-id914519732?k=20&m=914519732&s=612x612&w=0&h=L_kl7uysq7s8m2V_nqQJye7s9oTxUUXoPV8McpSPRzw=" alt="" className='w-24' />
                 <p className='text-3xl font-bold'><span className='e'>E</span>xpert in Technology</p>

@@ -4,7 +4,7 @@ import cover from '../../asset/cover.png'
 import { Link } from 'react-router-dom';
 const Home = () => {
     return (
-        <div className='grid mx-40 mt-20 lg:grid-cols-2'>
+        <div className='grid mx-40 mt-20 lg:grid-cols-3'>
             <div className='banner-title mt-14'>
                 <h1 className='mb-12 text-5xl font-semibold font-[popins]'>Welcome to our,,,<br></br> <span className='title-name'>Expert-Technology</span></h1>
                 <div>
@@ -13,7 +13,7 @@ const Home = () => {
                 </div>
 
             </div>
-            <div className='banner'>
+            <div className='col-span-2 banner'>
                 <img className='w-full h-full' src={cover} alt="banner" />
             </div>
         </div>
