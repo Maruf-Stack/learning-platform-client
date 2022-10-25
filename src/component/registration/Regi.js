@@ -11,13 +11,20 @@ const Regi = () => {
                         <p class="text-lg font-medium">Sign up</p>
 
                         <div>
+                            <label for="name" class="text-sm font-medium">Name</label>
+                            <input
+                                type="text"
+                                id="name"
+                                class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm border"
+                                placeholder="Enter your name"
+                            />
                             <label for="email" class="text-sm font-medium">Email</label>
 
                             <div class="relative mt-1">
                                 <input
                                     type="email"
                                     id="email"
-                                    class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                                    class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm border"
                                     placeholder="Enter email"
                                 />
 
@@ -47,7 +54,7 @@ const Regi = () => {
                                 <input
                                     type="password"
                                     id="password"
-                                    class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+                                    class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm border"
                                     placeholder="Enter password"
                                 />
 

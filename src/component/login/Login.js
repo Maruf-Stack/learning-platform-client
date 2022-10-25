@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { FcGoogle } from 'react-icons/fc/';
+import { VscGithub } from 'react-icons/vsc/';
 
 const Login = () => {
     return (
@@ -76,12 +78,15 @@ const Login = () => {
                             </div>
                         </div>
 
+
                         <button
                             type="submit"
                             class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
                         >
                             Sign in
                         </button>
+                        <button className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'> <FcGoogle className='mr-2 text-xl'></FcGoogle> Sign in with google</button>
+                        <button className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'>    <VscGithub className='mr-2 text-xl'></VscGithub> Sign in with github</button>
 
                         <p class="text-center text-sm text-gray-500">
                             No account?
