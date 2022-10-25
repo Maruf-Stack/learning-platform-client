@@ -6,14 +6,14 @@ const Header = () => {
         <div className='flex items-center justify-around header'>
             <div className='flex items-center h-auto title'>
                 <img src="https://media.istockphoto.com/vectors/online-education-concept-line-icons-internet-learning-courses-distant-vector-id914519732?k=20&m=914519732&s=612x612&w=0&h=L_kl7uysq7s8m2V_nqQJye7s9oTxUUXoPV8McpSPRzw=" alt="" className='w-24' />
-                <p className='text-3xl font-bold'>Expert in Technology</p>
+                <p className='text-3xl font-bold'><span className='e'>E</span>xpert in Technology</p>
 
             </div>
-            <div className='font-semibold nav'>
+            <div className='font-semibold nav font-[popins]'>
                 <Link to="/" className='mx-4'>Home</Link>
                 <Link className='mx-4'>Courses</Link>
                 <Link className='mx-4'>FAQ</Link>
-                <Link to="/login" className='mx-4'><button className="btn btn-outline btn-warning">Login</button></Link>
+                <Link to="/login" className='mx-4'><button className="btn btn-outline btn-info">Login</button></Link>
                 <label className=" swap swap-rotate">
                     <input type="checkbox" className='mt-5' />
 

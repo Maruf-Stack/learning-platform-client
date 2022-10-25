@@ -4,42 +4,42 @@ import { Link } from 'react-router-dom';
 const Regi = () => {
     return (
         <div>
-            <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-                <div class="mx-auto max-w-lg">
+            <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+                <div className="max-w-lg mx-auto">
 
-                    <form class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
-                        <p class="text-lg font-medium">Sign up</p>
+                    <form className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
+                        <p className="text-lg font-medium">Sign up</p>
 
                         <div>
-                            <label for="name" class="text-sm font-medium">Name</label>
+                            <label htmlFor="name" className="text-sm font-medium">Name</label>
                             <input
                                 type="text"
                                 id="name"
-                                class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm border"
+                                className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
                                 placeholder="Enter your name"
                             />
-                            <label for="email" class="text-sm font-medium">Email</label>
+                            <label htmlFor="email" className="text-sm font-medium">Email</label>
 
-                            <div class="relative mt-1">
+                            <div className="relative mt-1">
                                 <input
                                     type="email"
                                     id="email"
-                                    class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm border"
+                                    className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Enter email"
                                 />
 
-                                <span class="absolute inset-y-0 right-4 inline-flex items-center">
+                                <span className="absolute inset-y-0 inline-flex items-center right-4">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5 text-gray-400"
+                                        className="w-5 h-5 text-gray-400"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
                                             d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
                                         />
                                     </svg>
@@ -48,34 +48,34 @@ const Regi = () => {
                         </div>
 
                         <div>
-                            <label for="password" class="text-sm font-medium">Password</label>
+                            <label htmlFor="password" className="text-sm font-medium">Password</label>
 
-                            <div class="relative mt-1">
+                            <div className="relative mt-1">
                                 <input
                                     type="password"
                                     id="password"
-                                    class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm border"
+                                    className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Enter password"
                                 />
 
-                                <span class="absolute inset-y-0 right-4 inline-flex items-center">
+                                <span className="absolute inset-y-0 inline-flex items-center right-4">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5 text-gray-400"
+                                        className="w-5 h-5 text-gray-400"
                                         fill="none"
                                         viewBox="0 0 24 24"
                                         stroke="currentColor"
                                     >
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
                                             d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                                         />
                                         <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth="2"
                                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                                         />
                                     </svg>
@@ -85,14 +85,14 @@ const Regi = () => {
 
                         <button
                             type="submit"
-                            class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+                            className="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg"
                         >
                             Sign in
                         </button>
 
-                        <p class="text-center text-sm text-gray-500">
+                        <p className="text-sm text-center text-gray-500">
                             Already have account?
-                            <Link class="underline" to='/login'>Login</Link>
+                            <Link className="underline" to='/login'>Login</Link>
                         </p>
                     </form>
                 </div>

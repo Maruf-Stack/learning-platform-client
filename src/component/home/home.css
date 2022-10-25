@@ -1,0 +1,24 @@
+.title-name {
+    color: rgb(32, 66, 218);
+}
+
+.btn-courses {
+    padding: 12px 35px;
+    background-color: red;
+    color: whitesmoke;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.btn-courses:hover {
+    background-color: white;
+    border: 1px solid blue;
+    color: black;
+}
+
+.des {
+    color: rgba(0, 0, 0, 0.856);
+}
