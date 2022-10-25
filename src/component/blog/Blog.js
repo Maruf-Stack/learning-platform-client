@@ -25,7 +25,7 @@ const Blog = () => {
             <hr />
             <div className="p-8 mx-8 mb-4 rounded que">
                 <h1 className='mb-2 font-semibold text-'><span className='text-2xl font-bold'>Que 4 :</span>What is node ? How does node work?</h1>
-                <p className='font-semibold'><span className='text-2xl font-bold'>Ans : </span>Node.js is an open source server environment.<br></br>
+                <p className='font-semibold'><span className='text-2xl font-bold'>Ans : </span>Node.js is an open source server environment<br></br>
                     Node.js is used as backend service where javascript works on the server-side of the application. This way javascript is used on both frontend and backend. Node.js runs on chrome v8 engine which converts javascript code into machine code, it is highly scalable, lightweight, fast, and data-intensive.</p>
             </div>
             <hr />
