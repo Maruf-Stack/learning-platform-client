@@ -8,12 +8,12 @@ const Courses = () => {
 
     const allCourse = useLoaderData();
     return (
-        <div className='grid grid-cols-4'>
-            <div>
+        <div className='grid lg:grid-cols-4'>
+            <div className='mb-5'>
                 <Sidebar></Sidebar>
             </div>
             <div className="grid md:col-span-3 course ">
-                <div className='grid grid-cols-3 gap-1'>
+                <div className='grid mx-auto lg:mx-0 lg:gap-1 lg:grid-cols-3'>
                     {
                         allCourse.map(course => <Course course={course} key={course.id}></Course>)
                     }
