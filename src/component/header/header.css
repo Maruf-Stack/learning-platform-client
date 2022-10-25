@@ -1,0 +1,11 @@
+.header {
+    position: sticky;
+}
+
+.nav a {
+    color: rgba(0, 0, 0, 0.856);
+}
+
+.nav a:hover {
+    color: red;
+}
