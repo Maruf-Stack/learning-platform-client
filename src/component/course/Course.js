@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Course = ({ course }) => {
     const { name, id, img, price, duration } = course;
@@ -14,7 +15,7 @@ const Course = ({ course }) => {
                     <p>Course duration : {duration} month</p>
                     <p>Price : ${price}</p>
                     <div className="justify-end card-actions">
-                        <div className="badge badge-outline">Show details</div>
+                        <Link to={`/details/${id}`}><div className="badge badge-outline">Show details</div></Link>
                         <div className="badge badge-outline">Products</div>
                     </div>
                 </div>

@@ -6,6 +6,8 @@ import Home from './component/home/Home';
 import Login from './component/login/Login';
 import Regi from './component/registration/Regi';
 import Courses from './component/courses/Courses';
+import Details from './component/detailspage/Details';
+import Sidebar from './component/sidebar/Sidebar';
 
 
 function App() {
@@ -27,11 +29,16 @@ function App() {
           element: <Regi></Regi>
         },
         {
-          path: '/courses',
-          loader: () => fetch('http://localhost:5000/courses'),
+          path: '/courses/',
+          loader: () => fetch('http://localhost:5000/courses/'),
           element: <Courses></Courses>
 
-        }
+        }, {
+          path: '/details/:id',
+          loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+          element: <Details></Details>
+        },
+
       ]
     }
   ])
