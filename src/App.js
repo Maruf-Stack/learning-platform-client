@@ -9,6 +9,7 @@ import Courses from './component/courses/Courses';
 import Details from './component/detailspage/Details';
 import Sidebar from './component/sidebar/Sidebar';
 import Blog from './component/blog/Blog';
+import Error from './component/error page/Error';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
     {
       path: '/',
       element: <Main></Main>,
+      errorElement: <Error></Error>,
       children: [
         {
           path: '/',
