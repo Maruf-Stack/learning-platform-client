@@ -8,6 +8,7 @@ import Regi from './component/registration/Regi';
 import Courses from './component/courses/Courses';
 import Details from './component/detailspage/Details';
 import Sidebar from './component/sidebar/Sidebar';
+import Blog from './component/blog/Blog';
 
 
 function App() {
@@ -38,6 +39,10 @@ function App() {
           loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
           element: <Details></Details>
         },
+        {
+          path: '/blog',
+          element: <Blog></Blog>
+        }
 
       ]
     }

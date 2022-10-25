@@ -16,7 +16,7 @@ const Details = () => {
                     <p className='text-xl'>Duration of this course : <span className='font-bold'>{duration} month</span></p>
                     <p className='text-xl'>{describtion}</p>
                     <div className="justify-end card-actions">
-                        <button className="btn btn-info btn-outline px-9">Buy now</button>
+                        <button className="btn btn-info btn-outline px-9">Get premium access</button>
                     </div>
                 </div>
             </div>

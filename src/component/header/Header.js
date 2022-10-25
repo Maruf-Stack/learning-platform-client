@@ -13,6 +13,7 @@ const Header = () => {
                 <Link to="/" className='mx-4'>Home</Link>
                 <Link to="/courses" className='mx-4'>Courses</Link>
                 <Link className='mx-4'>FAQ</Link>
+                <Link to="/blog" className='mx-4'>Blog</Link>
                 <Link to="/login" className='mx-4'><button className="btn btn-outline btn-info px-9">Login</button></Link>
                 <label className=" swap swap-rotate">
                     <input type="checkbox" className='mt-5' />

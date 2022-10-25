@@ -8,7 +8,7 @@ const Home = () => {
             <div className='banner-title lg:mt-14'>
                 <h1 className='mb-12 lg:text-5xl text-2xl font-semibold font-[popins]'>Welcome to our,,,<br></br> <span className='title-name'>Expert-Technology</span></h1>
                 <div>
-                    <p className='font-medium des text-x'>If you want to be a expert Web developer,graficks desingner,programmer <br></br>this course is for you.In our all course we will teach you every<br></br> course from basic to advance.Enroll for growing up your <br></br>skill and be a IT expert.</p>
+                    <p className='font-medium des text-x'>If you want to be a expert Web developer,graphics desingner,programmer <br></br>this course is for you.In our all course we will teach you every<br></br> course from basic to advance.Enroll for growing up your <br></br>skill and be a IT expert.</p>
                     <Link to='/courses'><button className=' btn-courses'>View our courses</button></Link>
                 </div>
 
