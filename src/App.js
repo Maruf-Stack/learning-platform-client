@@ -3,6 +3,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
 import Main from './component/layout/Main';
 import Home from './component/home/Home';
+import Login from './component/login/Login';
+import Regi from './component/registration/Regi';
 
 
 function App() {
@@ -14,6 +16,14 @@ function App() {
         {
           path: '/',
           element: <Home></Home>
+        },
+        {
+          path: '/login',
+          element: <Login></Login>
+        },
+        {
+          path: '/regi',
+          element: <Regi></Regi>
         }
       ]
     }

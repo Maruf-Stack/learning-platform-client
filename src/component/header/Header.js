@@ -10,10 +10,10 @@ const Header = () => {
 
             </div>
             <div className='font-semibold nav'>
-                <Link className='mx-4'>Home</Link>
+                <Link to="/" className='mx-4'>Home</Link>
                 <Link className='mx-4'>Courses</Link>
                 <Link className='mx-4'>FAQ</Link>
-                <Link className='mx-4'><button className="btn btn-outline btn-warning">Login</button></Link>
+                <Link to="/login" className='mx-4'><button className="btn btn-outline btn-warning">Login</button></Link>
                 <label className=" swap swap-rotate">
                     <input type="checkbox" className='mt-5' />
 
