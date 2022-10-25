@@ -5,6 +5,7 @@ import Main from './component/layout/Main';
 import Home from './component/home/Home';
 import Login from './component/login/Login';
 import Regi from './component/registration/Regi';
+import Courses from './component/courses/Courses';
 
 
 function App() {
@@ -24,6 +25,12 @@ function App() {
         {
           path: '/regi',
           element: <Regi></Regi>
+        },
+        {
+          path: '/courses',
+          loader: () => fetch('http://localhost:5000/courses'),
+          element: <Courses></Courses>
+
         }
       ]
     }

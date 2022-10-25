@@ -11,7 +11,7 @@ const Header = () => {
             </div>
             <div className='font-semibold nav font-[popins]'>
                 <Link to="/" className='mx-4'>Home</Link>
-                <Link className='mx-4'>Courses</Link>
+                <Link to="/courses" className='mx-4'>Courses</Link>
                 <Link className='mx-4'>FAQ</Link>
                 <Link to="/login" className='mx-4'><button className="btn btn-outline btn-info">Login</button></Link>
                 <label className=" swap swap-rotate">
