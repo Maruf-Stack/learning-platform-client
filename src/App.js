@@ -10,6 +10,8 @@ import Details from './component/detailspage/Details';
 import Sidebar from './component/sidebar/Sidebar';
 import Blog from './component/blog/Blog';
 import Error from './component/error page/Error';
+import Checkout from './component/checkout/Checkout';
+import Private from './component/privateRoute/Private';
 
 
 function App() {
@@ -44,6 +46,10 @@ function App() {
         {
           path: '/blog',
           element: <Blog></Blog>
+        }, {
+          path: '/checkout/:id',
+          loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+          element: <Private><Checkout></Checkout></Private>
         }
 
       ]

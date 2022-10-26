@@ -1,26 +1,45 @@
 import React, { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc/';
 import { VscGithub } from 'react-icons/vsc/';
 import { useContext } from 'react';
 import AuthProvider, { AuthContext } from '../../context/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import Swal from 'sweetalert2';
 
 
 
 const Login = () => {
     const nevigate = useNavigate()
+    const location = useLocation()
+    const from = location?.state?.from?.pathname || '/'
     const [error, setError] = useState('');
-    const { user, singIn } = useContext(AuthContext);
+    const { user, singIn, singInwithGithub } = useContext(AuthContext);
     const { providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
     const handlegooglesignIn = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                nevigate('/')
             })
             .catch(error => console.log(error))
+    }
+    const handleGithubLogin = () => {
+        singInwithGithub(githubProvider)
+            .then(result => {
+                const use = result.user;
+                nevigate('/')
+            })
+            .catch(error => {
+                setError(Swal.fire({
+                    title: 'Error!',
+                    text: 'No github account',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                }))
+            })
     }
 
     const emailandpass = event => {
@@ -34,7 +53,7 @@ const Login = () => {
                 console.log(user)
                 form.reset()
                 setError('')
-                nevigate('/')
+                nevigate(from, { replace: true })
             })
             .catch(error => {
                 setError(Swal.fire({
@@ -132,7 +151,7 @@ const Login = () => {
                             Sign in
                         </button>
                         <button onClick={handlegooglesignIn} className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'> <FcGoogle className='mr-2 text-xl'></FcGoogle> Sign in with google</button>
-                        <button className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'>    <VscGithub className='mr-2 text-xl'></VscGithub> Sign in with github</button>
+                        <button onClick={handleGithubLogin} className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'>    <VscGithub className='mr-2 text-xl'></VscGithub> Sign in with github</button>
 
                         <p className="text-sm text-center text-gray-500">
                             No account?

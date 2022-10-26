@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../context/AuthProvider';
 
 const Regi = () => {
     const [error, setError] = useState('')
+    const navigate = useNavigate()
     const { emailPass } = useContext(AuthContext)
     const handleSubmit = event => {
         event.preventDefault()
@@ -21,6 +22,7 @@ const Regi = () => {
                 const user = result.user
                 console.log(user)
                 setError('')
+                navigate('/')
                 form.reset()
             })
             .catch(error => {
@@ -131,7 +133,7 @@ const Regi = () => {
                             type="submit"
                             className="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg"
                         >
-                            Sign in
+                            Sign up
                         </button>
 
                         <p className="text-sm text-center text-gray-500">
