@@ -38,7 +38,7 @@ const Login = () => {
             .then(result => {
                 const use = result.user;
                 Swal.fire({
-                    position: 'top-end',
+                    position: 'center',
                     icon: 'success',
                     title: 'successfully login',
                     showConfirmButton: false,
@@ -64,10 +64,17 @@ const Login = () => {
         singIn(email, password)
             .then(result => {
                 const user = result.user;
-                console.log(user)
                 form.reset()
                 setError('')
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'successfully login',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 nevigate(from, { replace: true })
+
             })
             .catch(error => {
                 setError(Swal.fire({

@@ -15,8 +15,7 @@ const Course = ({ course }) => {
                     <p>Course duration : {duration} month</p>
                     <p>Price : ${price}</p>
                     <div className="justify-end card-actions">
-                        <Link to={`/details/${id}`}><div className="badge badge-outline">Show details</div></Link>
-                        <div className="badge badge-outline">Products</div>
+                        <Link to={`/details/${id}`}><div className="btn btn-outline btn-info mx-2 my-1">Show details</div></Link>
                     </div>
                 </div>
             </div>

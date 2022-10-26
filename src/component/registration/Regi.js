@@ -16,7 +16,6 @@ const Regi = () => {
         const email = form.email.value;
         const password = form.password.value;
         const photoURL = form.photoURL.value;
-        console.log(name, email, password, photoURL)
         emailPass(email, password)
             .then(result => {
                 const user = result.user

@@ -12,6 +12,7 @@ import Blog from './component/blog/Blog';
 import Error from './component/error page/Error';
 import Checkout from './component/checkout/Checkout';
 import Private from './component/privateRoute/Private';
+import Faq from './component/faq/Faq';
 
 
 function App() {
@@ -35,12 +36,12 @@ function App() {
         },
         {
           path: '/courses/',
-          loader: () => fetch('http://localhost:5000/courses/'),
+          loader: () => fetch('https://it-course-server.vercel.app/courses/'),
           element: <Courses></Courses>
 
         }, {
           path: '/details/:id',
-          loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+          loader: ({ params }) => fetch(`https://it-course-server.vercel.app/courses/${params.id}`),
           element: <Details></Details>
         },
         {
@@ -48,8 +49,11 @@ function App() {
           element: <Blog></Blog>
         }, {
           path: '/checkout/:id',
-          loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+          loader: ({ params }) => fetch(`https://it-course-server.vercel.app/courses/${params.id}`),
           element: <Private><Checkout></Checkout></Private>
+        }, {
+          path: '/faq',
+          element: <Faq></Faq>
         }
 
       ]
