@@ -22,6 +22,13 @@ const Login = () => {
         providerLogin(googleProvider)
             .then(result => {
                 const user = result.user;
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'successfully login',
+                    showConfirmButton: false,
+                    timer: 3000
+                })
                 nevigate('/')
             })
             .catch(error => console.log(error))
@@ -30,6 +37,13 @@ const Login = () => {
         singInwithGithub(githubProvider)
             .then(result => {
                 const use = result.user;
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'successfully login',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 nevigate('/')
             })
             .catch(error => {
