@@ -11,7 +11,7 @@ const Regi = () => {
                         <p className="text-lg font-medium">Sign up</p>
 
                         <div>
-                            <label htmlFor="name" className="text-sm font-medium">Name</label>
+                            <label htmlFor="name" className="text-sm font-medium">Full Name</label>
                             <input
                                 type="text"
                                 id="name"

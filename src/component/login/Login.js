@@ -2,14 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc/';
 import { VscGithub } from 'react-icons/vsc/';
+import { useContext } from 'react';
+import AuthProvider, { AuthContext } from '../../context/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+
+
 
 const Login = () => {
+    const { user } = useContext(AuthContext);
+    const { providerLogin } = useContext(AuthContext);
+    const googleProvider = new GoogleAuthProvider();
+    const handlegooglesignIn = () => {
+        providerLogin(googleProvider)
+    }
+    const handleform = event => {
+        event.preventDefault()
+    }
+
     return (
         <div>
             <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
                 <div className="max-w-lg mx-auto">
 
-                    <form className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
+                    <form onSubmit={handleform} className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
                         <p className="text-lg font-medium">Sign in to your account</p>
 
                         <div>
@@ -80,12 +95,13 @@ const Login = () => {
 
 
                         <button
+
                             type="submit"
                             className="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg"
                         >
                             Sign in
                         </button>
-                        <button className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'> <FcGoogle className='mr-2 text-xl'></FcGoogle> Sign in with google</button>
+                        <button onClick={handlegooglesignIn} className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'> <FcGoogle className='mr-2 text-xl'></FcGoogle> Sign in with google</button>
                         <button className='w-full px-5 py-3 font-medium rounded-lg btn btn-outline btn-primary'>    <VscGithub className='mr-2 text-xl'></VscGithub> Sign in with github</button>
 
                         <p className="text-sm text-center text-gray-500">
