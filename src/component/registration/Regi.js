@@ -1,31 +1,73 @@
 import React from 'react';
+import { useState } from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import { AuthContext } from '../../context/AuthProvider';
 
 const Regi = () => {
+    const [error, setError] = useState('')
+    const { emailPass } = useContext(AuthContext)
+    const handleSubmit = event => {
+        event.preventDefault()
+        const form = event.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const photoURL = form.photoURL.value;
+        console.log(name, email, password, photoURL)
+        emailPass(email, password)
+            .then(result => {
+                const user = result.user
+                console.log(user)
+                setError('')
+                form.reset()
+            })
+            .catch(error => {
+                setError(Swal.fire({
+                    title: 'Error!',
+                    text: `Something went wrong
+                    ${error.message}`,
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                }))
+            })
+    }
     return (
         <div>
             <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
                 <div className="max-w-lg mx-auto">
 
-                    <form className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
+                    <form onSubmit={handleSubmit} className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
                         <p className="text-lg font-medium">Sign up</p>
 
                         <div>
                             <label htmlFor="name" className="text-sm font-medium">Full Name</label>
                             <input
                                 type="text"
+                                name='name'
                                 id="name"
                                 className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
                                 placeholder="Enter your name"
+                            />
+                            <label htmlFor="name" className="text-sm font-medium">Photo URL</label>
+                            <input
+                                type="text"
+                                name='photoURL'
+                                id="photoURL"
+                                className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
+                                placeholder="PhotoURL"
                             />
                             <label htmlFor="email" className="text-sm font-medium">Email</label>
 
                             <div className="relative mt-1">
                                 <input
                                     type="email"
+                                    name='email'
                                     id="email"
                                     className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Enter email"
+                                    required
                                 />
 
                                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -53,9 +95,11 @@ const Regi = () => {
                             <div className="relative mt-1">
                                 <input
                                     type="password"
+                                    name='password'
                                     id="password"
                                     className="w-full p-4 pr-12 text-sm border border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Enter password"
+                                    required
                                 />
 
                                 <span className="absolute inset-y-0 inline-flex items-center right-4">

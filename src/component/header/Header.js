@@ -1,7 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
+import { IconName, FaUserCircle } from "react-icons/fa";
 import './header.css'
 const Header = () => {
+    const { user, singOut } = useContext(AuthContext)
+    const handlesingOut = () => {
+        singOut()
+    }
     return (
         <div className='items-center justify-around lg:mb-20 lg:flex header'>
             <div className='flex items-center h-auto title'>
@@ -14,7 +21,13 @@ const Header = () => {
                 <Link to="/courses" className='mx-4'>Courses</Link>
                 <Link className='mx-4'>FAQ</Link>
                 <Link to="/blog" className='mx-4'>Blog</Link>
-                <Link to="/login" className='mx-4'><button className="btn btn-outline btn-info px-9">Login</button></Link>
+                {
+                    user?.uid ?
+                        <Link onClick={handlesingOut} to="/" className='mx-4'><button className="btn btn-outline px-9 btn-error">Logout</button></Link> :
+                        <Link to="/login" className='mx-4'><button className="btn btn-outline btn-info px-9">Login</button></Link>
+                }
+
+
                 <label className=" swap swap-rotate">
                     <input type="checkbox" className='mt-5' />
 
@@ -23,6 +36,10 @@ const Header = () => {
                     <svg className="w-10 h-10 fill-current swap-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" /></svg>
 
                 </label>
+                <p className='font-sans text-blue'>Username : {user?.displayName}</p>
+                {
+                    user?.photoURL ? <img className='w-20 h-20 font-sans rounded' src={user?.photoURL} alt='avatar'></img>
+                        : <FaUserCircle></FaUserCircle>}
             </div>
         </div>
     );

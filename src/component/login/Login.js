@@ -1,30 +1,56 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { FcGoogle } from 'react-icons/fc/';
 import { VscGithub } from 'react-icons/vsc/';
 import { useContext } from 'react';
 import AuthProvider, { AuthContext } from '../../context/AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 
 
 const Login = () => {
-    const { user } = useContext(AuthContext);
+    const nevigate = useNavigate()
+    const [error, setError] = useState('');
+    const { user, singIn } = useContext(AuthContext);
     const { providerLogin } = useContext(AuthContext);
     const googleProvider = new GoogleAuthProvider();
     const handlegooglesignIn = () => {
         providerLogin(googleProvider)
-    }
-    const handleform = event => {
-        event.preventDefault()
+            .then(result => {
+                const user = result.user;
+            })
+            .catch(error => console.log(error))
     }
 
+    const emailandpass = event => {
+        event.preventDefault()
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        singIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user)
+                form.reset()
+                setError('')
+                nevigate('/')
+            })
+            .catch(error => {
+                setError(Swal.fire({
+                    title: 'Error!',
+                    text: 'You entered wrong password',
+                    icon: 'error',
+                    confirmButtonText: 'OK'
+                }))
+            })
+    }
     return (
         <div>
             <div className="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
                 <div className="max-w-lg mx-auto">
 
-                    <form onSubmit={handleform} className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
+                    <form onSubmit={emailandpass} className="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl">
                         <p className="text-lg font-medium">Sign in to your account</p>
 
                         <div>
@@ -33,9 +59,11 @@ const Login = () => {
                             <div className="relative mt-1">
                                 <input
                                     type="email"
+                                    name='email'
                                     id="email"
                                     className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Enter email"
+                                    required
                                 />
 
                                 <span className="absolute inset-y-0 inline-flex items-center right-4">
@@ -63,9 +91,11 @@ const Login = () => {
                             <div className="relative mt-1">
                                 <input
                                     type="password"
+                                    name='password'
                                     id="password"
                                     className="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                                     placeholder="Enter password"
+                                    required
                                 />
 
                                 <span className="absolute inset-y-0 inline-flex items-center right-4">
