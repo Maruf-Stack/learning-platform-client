@@ -17,6 +17,7 @@ const Course = ({ course }) => {
                     <div className="justify-end card-actions">
                         <Link to={`/details/${id}`}><div className="btn btn-outline btn-info mx-2 my-1">Show details</div></Link>
                     </div>
+
                 </div>
             </div>
         </div>
