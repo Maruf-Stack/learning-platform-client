@@ -14,3 +14,11 @@
     font-size: 40px;
     color: rgb(32, 66, 218);
 }
+
+.smmenu {
+    background-color: #090620;
+}
+
+.smmenu a {
+    color: whitesmoke;
+}
